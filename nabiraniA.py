@@ -54,7 +54,7 @@ def naberDataA():
     maxADC = ctypes.c_int16()
     vRange = 500
     mvTrigger = 100
-    adcTrigger = mvTrigger/vRange*maxADC.value
+    adcTrigger = int(mvTrigger/vRange*maxADC.value)
     status["trigger"] = ps.ps2000aSetSimpleTrigger(chandle, 1, 0, adcTrigger, 2, 0, 0)
     assert_pico_ok(status["trigger"])
     
