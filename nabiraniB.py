@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 23 16:40:06 2019
+
+@author: David
+"""
+
 #
 # Copyright (C) 2018 Pico Technology Ltd. See LICENSE file for terms.
 #
@@ -11,7 +18,7 @@ from picosdk.ps2000a import ps2000a as ps
 import matplotlib.pyplot as plt
 from picosdk.functions import adc2mV, assert_pico_ok
 
-def naberData():
+def naberDataB():
     # Create chandle and status ready for use
     chandle = ctypes.c_int16()
     status = {}
@@ -191,14 +198,15 @@ def naberData():
     # display status returns
 #    print(status)
     
-    cas=np.array(time)
-    napeti=np.array(adc2mVChAMax)
-    return cas,napeti
+    casB=np.array(time)
+    napetiB=np.array(adc2mVChBMax)
+
+    return casB,napetiB
 
 if(__name__=="__main__"):
-    cas,napeti = naberData()
+    casB,napetiB = naberDataB()
     # plot data from channel A and B
-    plt.plot(cas, napeti)
+    plt.plot(casB, napetiB)
     plt.xlabel('Time (ns)')
     plt.ylabel('Voltage (mV)')
     plt.show()
