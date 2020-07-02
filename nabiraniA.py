@@ -48,14 +48,16 @@ def naberDataA():
     # enabled = 1
     # source = PS2000A_CHANNEL_A = 0
     # threshold = 1024 ADC counts
-    # direction = PS2000A_RISING = 2
+    # direction = PS2000A_RISING = 2 (falling = 3)
     # delay = 0 s
     # auto Trigger = 1000 ms
     maxADC = ctypes.c_int16()
+    status["maximumValue"] = ps.ps2000aMaximumValue(chandle, ctypes.byref(maxADC))
     vRange = 500
-    mvTrigger = 100
+    mvTrigger = -100
     adcTrigger = int(mvTrigger/vRange*maxADC.value)
-    status["trigger"] = ps.ps2000aSetSimpleTrigger(chandle, 1, 0, adcTrigger, 2, 0, 0)
+#    print(maxADC.value,adcTrigger)
+    status["trigger"] = ps.ps2000aSetSimpleTrigger(chandle, 1, 0, adcTrigger, 3, 0, 0)
     assert_pico_ok(status["trigger"])
     
     # Set number of pre and post trigger samples to be collected
@@ -172,6 +174,7 @@ def naberDataA():
     # handle = chandle
     # pointer to value = ctypes.byref(maxADC)
     maxADC = ctypes.c_int16()
+#    print(maxADC.value)
     status["maximumValue"] = ps.ps2000aMaximumValue(chandle, ctypes.byref(maxADC))
     assert_pico_ok(status["maximumValue"])
 #    print(maxADC)

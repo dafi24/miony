@@ -18,12 +18,12 @@ while(True):
     if(cas2<0):                 
         print("Čas 1:",cas1)        
         plt.figure(1)
-        plt.plot(cas[index1-30:index2a+30],napeti[index1-30:index2a+30])
-        plt.show()     
+        plt.plot(cas[index1-30:index1+30],napeti[index1-30:index1+30])
+        plt.show()
     else:
-        print("Čas 1:",cas1)
-        print("Čas 2:",cas2)
-        print("Rozdíl:",cas2-cas1)
+        print("Čas 1 [ms]:",cas1)
+        print("Čas 2 [ms]:",cas2)
+        print("Rozdíl [ms]:",cas2-cas1)
         np.savetxt("rozpad {}.txt".format(cislo),(cas,napeti),delimiter=",")
         cislo+=1
 #        rozdily.append(cas2-cas1)
@@ -34,5 +34,5 @@ while(True):
 #        hodnoty,hranice,_=plt.hist(rozdily,bins=11,range=[min(rozdily),max(rozdily)])
 #        plt.plot(plt.hist(rozdilyAll,bins=11,range=[min(rozdilyAll),max(rozdilyAll)]))
         plt.figure(2)
-        plt.plot(cas[index1-30:index1+30],napeti[index1-30:index1+30])
-        plt.show()
+        plt.plot(cas[index1-30:index2a+30],napeti[index1-30:index2a+30])
+        plt.show()     

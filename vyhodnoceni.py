@@ -29,7 +29,7 @@ def caspulsu(cas,napeti,indexZ,indexK,proc):
 def vyhodnoceni(cas, napeti):
     #indexy
     
-    trigger=100
+    trigger=50
     
     index1=0
     for x in napeti:
