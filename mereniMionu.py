@@ -15,7 +15,9 @@ while(True):
     cas,napeti = naberDataA()
     napeti = -napeti
     cas1,cas2,index1,index2a = vyhodnoceni(cas,napeti)
-    if(cas2<0):                 
+    if(cas1<0):
+        print("Nabiraní vrátilo data bez žádného pulsu")
+    elif(cas2<0):                 
         print("Čas 1:",cas1)        
         plt.figure(1)
         plt.plot(cas[index1-30:index1+30],napeti[index1-30:index1+30])
