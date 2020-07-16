@@ -135,15 +135,15 @@ while(True):
         print("Nabiraní vrátilo data bez žádného pulsu")
     elif(cas2<0):                 
         print("Čas 1:",cas1)        
-        plt.figure(1)
-        plt.plot(cas[index1-30:index1+30],napeti[index1-30:index1+30])
-        plt.show()
+#        plt.figure(1)
+#        plt.plot(cas[index1-30:index1+30],napeti[index1-30:index1+30])
+#        plt.show()
     else:
         print("Čas 1 [ms]:",cas1)
         print("Čas 2 [ms]:",cas2)
         print("Rozdíl [ms]:",cas2-cas1)
         np.savetxt("rozpad {}.txt".format(cislo),(cas,napeti),delimiter=",")
         cislo+=1
-        plt.figure(2)
-        plt.plot(cas[index1-30:index2a+30],napeti[index1-30:index2a+30])
-        plt.show()     
+#        plt.figure(2)
+#        plt.plot(cas[index1-30:index2a+30],napeti[index1-30:index2a+30])
+#        plt.show()     
