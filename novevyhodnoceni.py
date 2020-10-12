@@ -61,6 +61,6 @@ def vyhodnoceni(cas,napeti):
         if(abs(x)<reset):
             break
 # index2a bude vždy minimálně o 1 větší, než index2, což může být problém, pokud index2 je poslední sample z napětí (až se tohle vyřeší, teprve potom bude fungovat casPulsu)    
-    casPulsu1 = caspulsu(cas,napeti,index1,index1a,0.3)/1e6
-    casPulsu2 = caspulsu(cas,napeti,index2,index2a,0.3)/1e6
-    return casPulsu1,casPulsu2,index1,index2a
+#    casPulsu1 = caspulsu(cas,napeti,index1,index1a,0.3)/1e6
+#    casPulsu2 = caspulsu(cas,napeti,index2,index2a,0.3)/1e6
+    return index1,index1a,index2,index2a
