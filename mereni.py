@@ -4,7 +4,7 @@ Created on Thu Jul 16 11:44:46 2020
 
 @author: David
 """
-import vyhodnoceni as vhd
+import novevyhodnoceni as vhd
 import numpy as np
 import matplotlib.pyplot as plt
 import os.path as op
