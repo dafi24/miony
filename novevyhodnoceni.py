@@ -38,9 +38,10 @@ def vyhodnoceni(cas,napeti):
         if(abs(x)>trigger):
             break
         index1+=1
+    index1 -= 1
     
-    index1a=index1
-    for x in napeti[index1:]:
+    index1a = index1+1
+    for x in napeti[index1+1:]:
         index1a+=1
         if(abs(x)<reset):
             break
@@ -51,11 +52,11 @@ def vyhodnoceni(cas,napeti):
     
     index2=index1a
     for x in napeti[index1a:]:
-        if((abs(x)>trigger) and ((abs(x)-abs(napeti[index2]))/sampleTime>1)):
+        if(abs(x)>trigger):# and ((abs(x)-abs(napeti[index2]))/sampleTime>1)):
             break
         index2+=1
-    
-    index2a=index2
+    index2 -= 1
+    index2a=index2+1
     for x in napeti[index2:]:
         index2a+=1
         if(abs(x)<reset):

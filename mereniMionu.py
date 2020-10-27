@@ -7,6 +7,7 @@ Created on Mon Dec 23 16:44:41 2019
 import numpy as np
 from nabiraniA import naberDataA
 from vyhodnoceni import vyhodnoceni
+from vyhodnoceni import caspulsu
 import matplotlib.pyplot as plt
 
 #rozdily=[]
@@ -14,7 +15,9 @@ cislo=1
 while(True):
     cas,napeti = naberDataA()
     napeti = -napeti
-    cas1,cas2,index1,index2a = vyhodnoceni(cas,napeti)
+    index1,index1a,index2,index2a = vyhodnoceni(cas,napeti)
+    cas1 = caspulsu(cas, napeti, index1, index1a, 0.3)
+    cas2 = caspulsu(cas, napeti, index2, index2a, 0.3)
     if(cas1<0):
         print("Nabiraní vrátilo data bez žádného pulsu")
     elif(cas2<0):                 
