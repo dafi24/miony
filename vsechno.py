@@ -17,6 +17,8 @@ cislo = 1
 while(True):
     
     cas,napeti=naberDataA()
+#    plt.plot(cas,napeti)
+#    plt.show()
     napeti = -napeti
             
     trigger = 50
@@ -29,12 +31,15 @@ while(True):
             break
         index1+=1
     index1 -= 1
-        
+#    plt.plot([cas[index1],cas[index1]],[-500,200], "g")    
     index1a=index1+1
     for x in napeti[index1+1:]:
         index1a+=1
         if(x<reset):
             break
+#    plt.plot([cas[index1a],cas[index1a]],[-500,200], "r") 
+
+#    plt.show()
     
     # index1:index1a = kladná (resp. záporná) část prvního pulsu
     # index1 - jeden prvek před překročení triggeru
