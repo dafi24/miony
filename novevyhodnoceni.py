@@ -65,3 +65,13 @@ def vyhodnoceni(cas,napeti):
 #    casPulsu1 = caspulsu(cas,napeti,index1,index1a,0.3)/1e6
 #    casPulsu2 = caspulsu(cas,napeti,index2,index2a,0.3)/1e6
     return index1,index1a,index2,index2a
+"""
+if(__name__=="__main__"):
+    puls=np.loadtxt("puls SiPM - kopie.csv",delimiter=";")
+    cas=puls[:,0]
+    napeti=puls[:,1]
+    
+    plt.plot(cas,napeti)
+    plt.show()
+    vyhodnoceni(cas,napeti)
+"""

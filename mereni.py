@@ -6,14 +6,24 @@ Created on Thu Jul 16 11:44:46 2020
 """
 import novevyhodnoceni as vhd
 import numpy as np
-import matplotlib.pyplot as plt
-import os.path as op
+import time
+#import matplotlib.pyplot as plt
+#import os.path as op
 from nabiraniA import naberDataA
 
 # 1 SAMPLE = (12/245) us              
 
-cislo = 1    
+iter_count = 0
+casy_mereni = list(np.loadtxt("casyMereni.txt"))
+casy_mereni.append(0)
+t1 = time.time()
+cislo = 1
+
 while(True):
+    iter_count += 1
+    if(iter_count % 30 == 0):
+        casy_mereni[-1] = time.time() - t1
+        np.savetxt("casymereni.txt", casy_mereni)
     
     cas,napeti=naberDataA()
     napeti = -napeti
