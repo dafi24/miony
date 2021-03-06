@@ -13,7 +13,7 @@ from nabiraniA import naberDataA
 
 # 1 SAMPLE = (12/245) us              
 
-os.chdir(r"~/python/mionymereni")
+os.chdir(r"~/python/miony-mereni")
 iter_count = 0
 casy_mereni = list(np.loadtxt("casyMereni.txt"))
 casy_mereni.append(0)
