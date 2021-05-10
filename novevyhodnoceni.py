@@ -16,8 +16,10 @@ def caspulsu(cas, napeti, puls_index, proc):
         if(puls[i] > nap):
             index_napeti = puls_index[0] + i
             
-            U1 = napeti[index_napeti-1]
-            U2 = napeti[index_napeti]
+            U1 = abs(napeti[index_napeti-1])
+            U2 = abs(napeti[index_napeti])
+            if(U1 > U2):
+                return -999e6
             t1 = cas[index_napeti-1]
             t2 = cas[index_napeti]
             a = (U1 - U2) / (t1 - t2)
@@ -38,7 +40,7 @@ def vyhodnoceni(cas, napeti):
         if(not reset):
             reset = (len(pulses) == 1 and abs(napeti[i]) < trigger)
         pulse_expect_test = (pulse_expect and abs(napeti[i]) > trigger and reset)
-        presvih = (len(pulses) == 1 and max(abs(napeti)) > 400 and cas[i] - cas[pulses_index[0][0]] < 300)
+        presvih = (len(pulses) == 1 and max(abs(napeti)) > 400 and cas[i] - cas[pulses_index[0][0]] < 350)
         if((napeti[i] > trigger or pulse_expect_test) and not(presvih)):
             #if(i < 0 and abs(i) > 0.5 * max(puls)):
             #    negative = True
