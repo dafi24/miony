@@ -30,23 +30,25 @@ def caspulsu(cas, napeti, puls_index, proc):
     return -999e6
 
 def vyhodnoceni(cas, napeti):
-    pulses, pulses_index = [], []
-    
-    trigger = 50
-    
+    pulses, pulses_index, trigger = [], [], 50
+        
     puls_index, puls = [], []
     adding, pulse_expect, reset = False, False, False
     for i in range(len(napeti)):
         if(not reset):
-            reset = (len(pulses) == 1 and abs(napeti[i]) < trigger)
-        pulse_expect_test = (pulse_expect and abs(napeti[i]) > trigger and reset)
-        presvih = (len(pulses) == 1 and max(abs(napeti)) > 400 and cas[i] - cas[pulses_index[0][0]] < 350)
-        if((napeti[i] > trigger or pulse_expect_test) and not(presvih)):
-            #if(i < 0 and abs(i) > 0.5 * max(puls)):
-            #    negative = True
-            adding = True
-            puls.append(napeti[i])
-            puls_index.append(i)
+            if(len(pulses) == 1):
+                reset = (abs(napeti[i]) < trigger)
+                
+        pulse_expect_test = False
+        if(pulse_expect and reset):
+            pulse_expect_test = (abs(napeti[i]) > trigger)
+        
+        if(napeti[i] > trigger or pulse_expect_test):
+            presvih = (len(pulses) == 1 and max(abs(napeti)) > 400 and cas[i] - cas[pulses_index[0][0]] < 350)
+            if(not presvih):
+                adding = True
+                puls.append(napeti[i])
+                puls_index.append(i)
         else:
             if(adding):
                 adding = False
