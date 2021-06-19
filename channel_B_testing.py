@@ -17,4 +17,6 @@ print([caspulsu(cas, napeti, i, 0.3) for i in pulses_index])
 
 plt.figure(1)
 plt.plot(cas[100:200], napeti[100:200])
+print(cas[100:200])
+print(napeti[100:200])
 plt.savefig("plot.png")
