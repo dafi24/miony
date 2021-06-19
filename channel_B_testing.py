@@ -15,4 +15,6 @@ plt.plot(cas, napeti)
 pulses, pulses_index = vyhodnoceni(cas, napeti)
 print([caspulsu(cas, napeti, i, 0.3) for i in pulses_index])
 
+plt.figure(1)
 plt.plot(cas, napeti)
+plt.savefig("plot.png")
