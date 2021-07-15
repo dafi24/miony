@@ -23,6 +23,7 @@ while len(casy) < num:
     casy_ = [caspulsu(cas, napeti, i, 0.3) for i in pulses_index]
     for i in range(len(casy_) - 1):
         casy_rozdil = casy_[i+1] - casy_[i]
+        print(casy_rozdil)
         casy.append(casy_rozdil)
 
 nazev = input("Název souboru: ")
