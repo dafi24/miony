@@ -70,7 +70,7 @@ def naberDataB():
     # Set number of pre and post trigger samples to be collected
     #preTriggerSamples = 2500
     #postTriggerSamples = 2500
-    preTriggerSamples = 300
+    preTriggerSamples = 3000
     postTriggerSamples = 5000#2150
     totalSamples = preTriggerSamples + postTriggerSamples
     
