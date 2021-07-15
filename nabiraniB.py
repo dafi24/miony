@@ -65,7 +65,7 @@ def naberDataB():
     #preTriggerSamples = 2500
     #postTriggerSamples = 2500
     preTriggerSamples = 300
-    postTriggerSamples = 5000#2150x
+    postTriggerSamples = 50000000#2150x
     totalSamples = preTriggerSamples + postTriggerSamples
     
     # Get timebase information
