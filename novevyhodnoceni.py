@@ -59,6 +59,28 @@ def vyhodnoceni(cas, napeti):
                 pulses_index.append(puls_index)
                 puls_index, puls = [], []
     return pulses, pulses_index
+
+def vyhodnoceni_umelepulsy(cas, napeti):
+    pulses, pulses_index = [], []
+    saving = False
+    for i in range(len(napeti)):
+        if i > 200:
+            if not saving:
+                pulses.append([])
+                pulses_index.append([])
+                print('trigger')
+            saving = True
+            pulses[-1].append(napeti[i])
+            pulses_index[-1].append(i)
+            print('i')
+        else:
+            if saving:
+                saving = False
+                print('konec pulsu')
+    return pulses, pulses_index
+            
+        
+
 """
 if(__name__=="__main__"):
     puls=np.loadtxt("puls SiPM - kopie.csv",delimiter=";")

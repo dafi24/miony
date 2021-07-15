@@ -4,7 +4,7 @@ Created on Thu Jun  3 15:47:34 2021
 
 @author: David
 """
-from novevyhodnoceni import vyhodnoceni, caspulsu
+from novevyhodnoceni import vyhodnoceni_umelepulsy, caspulsu
 from nabiraniB import naberDataB
 import numpy as np
 #import matplotlib.pyplot as plt
@@ -19,7 +19,7 @@ while len(casy) < num:
     
     napeti= -napeti
     
-    pulses, pulses_index = vyhodnoceni(cas, napeti)
+    pulses, pulses_index = vyhodnoceni_umelepulsy(cas, napeti)
     print(pulses)
     casy_ = [caspulsu(cas, napeti, i, 0.3) for i in pulses_index]
     for i in range(len(casy_) - 1):
