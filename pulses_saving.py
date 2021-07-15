@@ -12,6 +12,7 @@ import numpy as np
 casy = []
 
 num = int(input("Počet časů: "))
+nazev = input("Název souboru: ")
 
 while len(casy) < num:
     cas, napeti = naberDataB()
@@ -27,7 +28,6 @@ while len(casy) < num:
         #print(casy_rozdil)
         casy.append(casy_rozdil)
 
-nazev = input("Název souboru: ")
 np.savetxt(nazev + ".txt", casy, delimiter=";")
 
 #plt.hist(casy, bins=200)

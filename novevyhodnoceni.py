@@ -68,15 +68,15 @@ def vyhodnoceni_umelepulsy(cas, napeti):
             if not saving:
                 pulses.append([])
                 pulses_index.append([])
-                print('trigger')
+                #print('trigger')
             saving = True
             pulses[-1].append(napeti[i])
             pulses_index[-1].append(i)
-            print('i')
+            #print('i')
         else:
             if saving:
                 saving = False
-                print('konec pulsu')
+                #print('konec pulsu')
     return pulses, pulses_index
             
         
