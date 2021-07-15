@@ -12,11 +12,13 @@ import matplotlib.pyplot as plt
 
 cas, napeti = naberDataB()
 plt.plot(cas, napeti)
+plt.show()
 pulses, pulses_index = vyhodnoceni_umelepulsy(cas, napeti)
 print([caspulsu(cas, napeti, i, 0.3) for i in pulses_index])
 
 plt.figure(1)
-plt.plot(cas[100:200], napeti[100:200])
-print(cas[100:200])
-print(napeti[100:200])
+print(cas[200:320])
+print(napeti[200:320])
 plt.savefig("plot.png")
+plt.show()
+np.savetxt('testdata.txt', (cas[200:320], napeti[200:320]), delimiter=';')
