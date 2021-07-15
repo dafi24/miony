@@ -58,14 +58,20 @@ def naberDataB():
     # direction = PS2000A_RISING = 2
     # delay = 0 s
     # auto Trigger = 1000 ms
-    status["trigger"] = ps.ps2000aSetSimpleTrigger(chandle, 1, 0, 10240, 2, 0, 0)
+    maxADC = ctypes.c_int16()
+    status["maximumValue"] = ps.ps2000aMaximumValue(chandle, ctypes.byref(maxADC))
+    vRange = 500
+    mvTrigger = -100
+    adcTrigger = int(mvTrigger/vRange*maxADC.value)
+#    print(maxADC.value,adcTrigger)
+    status["trigger"] = ps.ps2000aSetSimpleTrigger(chandle, 1, 0, adcTrigger, 3, 0, 0)
     assert_pico_ok(status["trigger"])
     
     # Set number of pre and post trigger samples to be collected
     #preTriggerSamples = 2500
     #postTriggerSamples = 2500
     preTriggerSamples = 300
-    postTriggerSamples = 50000000#2150x
+    postTriggerSamples = 5000#2150
     totalSamples = preTriggerSamples + postTriggerSamples
     
     # Get timebase information
