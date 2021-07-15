@@ -64,7 +64,7 @@ def naberDataB():
     mvTrigger = -100
     adcTrigger = int(mvTrigger/vRange*maxADC.value)
 #    print(maxADC.value,adcTrigger)
-    status["trigger"] = ps.ps2000aSetSimpleTrigger(chandle, 1, 0, adcTrigger, 3, 0, 0)
+    status["trigger"] = ps.ps2000aSetSimpleTrigger(chandle, 1, 1, adcTrigger, 3, 0, 0)
     assert_pico_ok(status["trigger"])
     
     # Set number of pre and post trigger samples to be collected
