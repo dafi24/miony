@@ -64,7 +64,7 @@ def vyhodnoceni_umelepulsy(cas, napeti):
     pulses, pulses_index = [], []
     saving = False
     for i in range(len(napeti)):
-        if i > 200:
+        if napeti[i] > 200:
             if not saving:
                 pulses.append([])
                 pulses_index.append([])
